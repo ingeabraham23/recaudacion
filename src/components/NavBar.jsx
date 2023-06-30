@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const navigationItems = [
-  { path: '/vista', label: 'vista' },
+  { path: '/', label: 'vista' },
   { path: '/edicion', label: 'edicion' },
   { path: '/agregar', label: 'agregar' },
   { path: '/cargar', label: 'cargar' },

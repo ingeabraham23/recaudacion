@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import CopiarDatos from "./components/CopiarDatos";
 import TablaPresentacion from "./components/TablaPresentacion";
 import TablaEdicion from "./components/TablaEdicion";
@@ -9,17 +9,17 @@ import Navbar from "./components/NavBar";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Navbar/>
         <Routes>
-          <Route path="/vista" element={<TablaPresentacion />} />
+          <Route path="/" element={<TablaPresentacion />} />
           <Route path="/edicion" element={<TablaEdicion />} />
           <Route path="/agregar" element={<AgregarPersona />} />
           <Route path="/cargar" element={<CopiarDatos />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

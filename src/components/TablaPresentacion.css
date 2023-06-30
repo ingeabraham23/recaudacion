@@ -10,7 +10,7 @@ thead th {
   font-size: 10px;
   text-align: center;
   padding: 0px;
-  background-color: rgb(214, 199, 199);
+  background-color: rgb(255, 255, 255);
   font-weight: normal;
 }
 
@@ -41,11 +41,11 @@ button:hover {
 }
 
 .celda-contador {
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(255, 255, 255);
 }
 
 .fila-total {
-  background-color: rgb(255, 251, 25);
+  background-color: rgb(255, 255, 255);
 }
 
 /* .encabezado {
@@ -54,3 +54,55 @@ button:hover {
   padding: 1px;
   text-align: center;
 } */
+
+.tabla-container {
+  width: 49%;
+  float: left;
+}
+.tabla-container-derecha {
+  width: 49%;
+  float: right;
+}
+
+.tabla-izquierda {
+  width: 98%;
+  border-collapse: collapse;
+  margin-left: 2px;
+}
+
+.tabla-derecha {
+  width: 98%;
+  border-collapse: collapse;
+  margin-right: 2px;
+}
+
+.container {
+  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
+  width: 98%; /* Ajusta el ancho del div */
+  margin: 1px; /* Centra horizontalmente el div */
+  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
+  text-align: center; /* Centra el texto horizontalmente */
+  background-color: #B5B5B5;
+  font-size: small;
+}
+
+.container-pie {
+  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
+  width: 98%; /* Ajusta el ancho del div */
+  margin: 1px; /* Centra horizontalmente el div */
+  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
+  text-align: center; /* Centra el texto horizontalmente */
+  background-color: #B5B5B5;
+  clear: both;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.container-pie2 {
+  width: 98%; /* Ajusta el ancho del div */
+  margin: 1px; /* Centra horizontalmente el div */
+  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
+  text-align: center; /* Centra el texto horizontalmente */
+  clear:both;
+}
+

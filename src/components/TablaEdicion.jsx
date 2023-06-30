@@ -17,7 +17,10 @@ function TablaEdicion() {
           setEncabezado(header.texto);
         }
       } catch (error) {
-        console.error("Error al obtener los datos de la tabla de Dexie:", error);
+        console.error(
+          "Error al obtener los datos de la tabla de Dexie:",
+          error
+        );
       }
     }
 
@@ -25,7 +28,8 @@ function TablaEdicion() {
   }, []);
 
   const handleInputChange = (event, index, field) => {
-    const value = field === "estado" ? parseInt(event.target.value) : event.target.value;
+    const value =
+      field === "estado" ? parseInt(event.target.value) : event.target.value;
     const updatedPersonas = [...personas];
     updatedPersonas[index][field] = value;
     setPersonas(updatedPersonas);
@@ -40,7 +44,10 @@ function TablaEdicion() {
       await db.encabezado.put({ id: 1, texto }); // Agrega el nuevo valor del encabezado a la tabla de Dexie
       console.log("Encabezado guardado en la tabla de Dexie");
     } catch (error) {
-      console.error("Error al guardar el encabezado en la tabla de Dexie:", error);
+      console.error(
+        "Error al guardar el encabezado en la tabla de Dexie:",
+        error
+      );
     }
   };
 
@@ -56,17 +63,38 @@ function TablaEdicion() {
 
   return (
     <div>
-      <h2>Tabla de Edición</h2>
       <div className="container-encabezado">
         <label htmlFor="encabezadoInput"></label>
         <input
-        className="input-encabezado"
+          className="input-encabezado"
           id="encabezadoInput"
           type="text"
           value={encabezado}
           onChange={handleEncabezadoChange}
         />
       </div>
+      <div style={{ width: "50%", margin: "0 auto" }}>
+        <table style={{ width: "100%" }}>
+          <tbody>
+            <tr style={{ backgroundColor: "#F41010" }}>
+              <td>0: Fuera de servicio</td>
+            </tr>
+            <tr style={{ backgroundColor: "#AAFF00" }}>
+              <td>1: Activo</td>
+            </tr>
+            <tr style={{ backgroundColor: "#EFEF0F" }}>
+              <td>2: Taller</td>
+            </tr>
+            <tr style={{ backgroundColor: "#0FB5EF" }}>
+              <td>3: Checador</td>
+            </tr>
+            <tr style={{ backgroundColor: "#ED7FFA" }}>
+              <td>4: Aportador externo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr></hr>
       <table>
         <thead>
           <tr>
@@ -86,7 +114,7 @@ function TablaEdicion() {
               <td>{persona.unidad}</td>
               <td>
                 <input
-                className="input-nombre"
+                  className="input-nombre"
                   type="text"
                   value={persona.nombre}
                   onChange={(e) => handleInputChange(e, index, "nombre")}
@@ -94,7 +122,7 @@ function TablaEdicion() {
               </td>
               <td>
                 <input
-                className="input-cooperacion"
+                  className="input-cooperacion"
                   type="number"
                   value={persona.cooperacion}
                   onChange={(e) => handleInputChange(e, index, "cooperacion")}
@@ -102,7 +130,7 @@ function TablaEdicion() {
               </td>
               <td>
                 <input
-                className="input-cooperacion"
+                  className="input-cooperacion"
                   type="number"
                   value={persona.estado}
                   onChange={(e) => handleInputChange(e, index, "estado")}
@@ -120,5 +148,3 @@ function TablaEdicion() {
 }
 
 export default TablaEdicion;
-
-

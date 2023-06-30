@@ -14,6 +14,7 @@ const rojos = [
     { unidad: "11", nombre: "Víctor", cooperacion: 0, estado:1 },
     { unidad: "12", nombre: "Candido", cooperacion: 0, estado:1 },
     { unidad: "13", nombre: "Paco", cooperacion: 0, estado:1 },
+    { unidad: "13", nombre: "Juan Carlos", cooperacion: 0, estado:1 },
     { unidad: "15", nombre: "Oscar", cooperacion: 0, estado:1 },
     { unidad: "16", nombre: "Heriberto", cooperacion: 0, estado:1 },
     { unidad: "18", nombre: "David", cooperacion: 0, estado:1 },
