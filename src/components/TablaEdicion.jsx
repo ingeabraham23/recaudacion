@@ -91,6 +91,9 @@ function TablaEdicion() {
             <tr style={{ backgroundColor: "#ED7FFA" }}>
               <td>4: Aportador externo</td>
             </tr>
+            <tr style={{ backgroundColor: "#FF8503" }}>
+              <td>5: Pendiente</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -65,6 +65,8 @@ function TablaPresentacion() {
         return "#0FB5EF"; //Checador
       case 4:
         return "#ED7FFA"; //Aportador externo
+      case 5:
+        return "#FF8503"; //Pendiente
       default:
         return "white";
     }
@@ -102,6 +104,9 @@ function TablaPresentacion() {
             </tr>
             <tr style={{ backgroundColor: "#ED7FFA" }}>
               <td>4: Aportador externo</td>
+            </tr>
+            <tr style={{ backgroundColor: "#FF8503" }}>
+              <td>5: Pendiente</td>
             </tr>
           </tbody>
         </table>
