@@ -63,6 +63,8 @@ function TablaPresentacion() {
         return "#EFEF0F"; //Taller
       case 3:
         return "#0FB5EF"; //Checador
+      case 4:
+        return "#ED7FFA"; //Aportador externo
       default:
         return "white";
     }
