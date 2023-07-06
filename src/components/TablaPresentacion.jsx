@@ -196,7 +196,7 @@ function TablaPresentacion() {
         </div>
         
       </div>
-      <div>
+      <div className="container-calendar">
           <button onClick={handleCaptureTable}>Capturar Tabla</button>
           <DatePicker
             selected={fechaSeleccionada}

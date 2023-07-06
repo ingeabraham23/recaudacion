@@ -105,4 +105,10 @@ button:hover {
   text-align: center; /* Centra el texto horizontalmente */
   clear:both;
 }
+.container-calendar {
+  width: 50%; /* Ajusta el ancho del div */
+  margin: 0 auto; /* Centra horizontalmente el div */
+  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
+  text-align: center; /* Centra el texto horizontalmente */
+}
 
