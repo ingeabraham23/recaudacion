@@ -27,8 +27,6 @@ function TablaPresentacion() {
   const fechaActual = new Date(); // Obtiene la fecha actual
   const [fechaSeleccionada, setFechaSeleccionada] = useState(fechaActual); // Estado para la fecha seleccionada en el DatePicker, se inicializa con la fecha en que se esta ejecutando la aplicación
 
-  console.log("Actual: ", fechaActual)
-  console.log("Seleccionada: ",fechaSeleccionada)
   useEffect(() => {
     async function fetchPersonas() {
       try {
@@ -55,10 +53,6 @@ function TablaPresentacion() {
         );
       }
     }
-
-   
-    const formattedDate = fechaSeleccionada.toLocaleDateString("es-MX", opciones);
-    setFechaSeleccionada(formattedDate);
 
     fetchPersonas();
     fetchEncabezado();
