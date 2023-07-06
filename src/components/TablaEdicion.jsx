@@ -77,22 +77,22 @@ function TablaEdicion() {
         <table style={{ width: "100%" }}>
           <tbody>
             <tr style={{ backgroundColor: "#F41010" }}>
-              <td>0: Fuera de servicio</td>
+              <td>0: Fuera de servicio.</td>
             </tr>
             <tr style={{ backgroundColor: "#AAFF00" }}>
-              <td>1: Activo</td>
+              <td>1: Activo.</td>
             </tr>
             <tr style={{ backgroundColor: "#EFEF0F" }}>
-              <td>2: Taller</td>
+              <td>2: Taller.</td>
             </tr>
             <tr style={{ backgroundColor: "#0FB5EF" }}>
-              <td>3: Checador</td>
+              <td>3: Checador.</td>
             </tr>
             <tr style={{ backgroundColor: "#ED7FFA" }}>
-              <td>4: Aportador externo</td>
+              <td>4: Aportador externo.</td>
             </tr>
             <tr style={{ backgroundColor: "#FF8503" }}>
-              <td>5: Pendiente</td>
+              <td>5: Posturero.</td>
             </tr>
           </tbody>
         </table>
