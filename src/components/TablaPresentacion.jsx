@@ -57,7 +57,7 @@ function TablaPresentacion() {
     }
 
    
-    const formattedDate = fechaSeleccionada //.toLocaleDateString("es-MX", opciones);
+    const formattedDate = fechaSeleccionada.toLocaleDateString("es-MX", opciones);
     setFechaSeleccionada(formattedDate);
 
     fetchPersonas();
@@ -91,7 +91,7 @@ function TablaPresentacion() {
         const imgData = canvas.toDataURL("image/png");
         const downloadLink = document.createElement("a");
         downloadLink.href = imgData;
-        downloadLink.download = encabezado + fechaSeleccionada;
+        downloadLink.download = encabezado + fechaSeleccionada.toLocaleDateString("es-MX", opciones);
         downloadLink.click();
       });
     }
