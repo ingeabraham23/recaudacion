@@ -8,12 +8,14 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy" : "gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "date-fns": "^2.30.0",
     "dexie": "^3.2.3",
     "html2canvas": "^1.4.1",
     "react": "^18.2.0",
+    "react-datepicker": "^4.15.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2"
   },

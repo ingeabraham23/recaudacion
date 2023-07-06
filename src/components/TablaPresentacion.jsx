@@ -5,6 +5,14 @@ import db from "../db";
 import html2canvas from "html2canvas";
 import "./TablaPresentacion.css"; // Importa el archivo CSS
 
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+
+import es from 'date-fns/locale/es'
+import { registerLocale } from  "react-datepicker"
+
+registerLocale('es', es)
+
 function TablaPresentacion() {
   const opciones = {
     weekday: "long",
@@ -14,9 +22,13 @@ function TablaPresentacion() {
   };
   const [personas, setPersonas] = useState([]);
   const [encabezado, setEncabezado] = useState("");
-  const [fecha, setFecha] = useState("");
   const containerRef = useRef(null);
 
+  const fechaActual = new Date(); // Obtiene la fecha actual
+  const [fechaSeleccionada, setFechaSeleccionada] = useState(fechaActual); // Estado para la fecha seleccionada en el DatePicker, se inicializa con la fecha en que se esta ejecutando la aplicación
+
+  console.log("Actual: ", fechaActual)
+  console.log("Seleccionada: ",fechaSeleccionada)
   useEffect(() => {
     async function fetchPersonas() {
       try {
@@ -44,9 +56,9 @@ function TablaPresentacion() {
       }
     }
 
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString("es-MX", opciones);
-    setFecha(formattedDate);
+   
+    const formattedDate = fechaSeleccionada //.toLocaleDateString("es-MX", opciones);
+    setFechaSeleccionada(formattedDate);
 
     fetchPersonas();
     fetchEncabezado();
@@ -79,11 +91,15 @@ function TablaPresentacion() {
         const imgData = canvas.toDataURL("image/png");
         const downloadLink = document.createElement("a");
         downloadLink.href = imgData;
-        downloadLink.download = encabezado + fecha;
+        downloadLink.download = encabezado + fechaSeleccionada;
         downloadLink.click();
       });
     }
   };
+
+  function controlarFechaSeleccionada(fecha) {
+    setFechaSeleccionada(fecha);
+  }
 
   return (
     <div ref={containerRef}>
@@ -114,7 +130,7 @@ function TablaPresentacion() {
       <div className="container">
         {encabezado}
         <hr></hr>
-        Fecha: {fecha}
+        Fecha: {fechaSeleccionada.toLocaleDateString("es-MX", opciones)}
       </div>
 
       <div className="tabla-container">
@@ -180,7 +196,8 @@ function TablaPresentacion() {
       </div>
       <div>
         <button onClick={handleCaptureTable}>Capturar Tabla</button>
-      </div>
+        <DatePicker selected={fechaSeleccionada} showIcon withPortal onChange={controlarFechaSeleccionada} locale="es" onFocus={(e) => { e.target.readOnly = true; e.target.blur() }}/>
+    </div>
     </div>
   );
 }
