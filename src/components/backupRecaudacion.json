@@ -1,0 +1,268 @@
+[
+  {
+    "unidad": "01",
+    "nombre": "Pedro",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 40
+  },
+  {
+    "unidad": "02",
+    "nombre": "Martín",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 41
+  },
+  {
+    "unidad": "03",
+    "nombre": "Ramón",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 42
+  },
+  {
+    "unidad": "04",
+    "nombre": "Fermín",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 43
+  },
+  {
+    "unidad": "05",
+    "nombre": "Juan",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 44
+  },
+  {
+    "unidad": "06",
+    "nombre": "Marce",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 45
+  },
+  {
+    "unidad": "07",
+    "nombre": "Samuel",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 46
+  },
+  {
+    "unidad": "08",
+    "nombre": "Humberto",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 47
+  },
+  {
+    "unidad": "09",
+    "nombre": "Enrique",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 48
+  },
+  {
+    "unidad": "10",
+    "nombre": "Samuel",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 49
+  },
+  {
+    "unidad": "12",
+    "nombre": "Candido",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 50
+  },
+  {
+    "unidad": "13",
+    "nombre": "Paco",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 51
+  },
+  {
+    "unidad": "14",
+    "nombre": " ",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 52
+  },
+  {
+    "unidad": "15",
+    "nombre": "Oscar",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 53
+  },
+  {
+    "unidad": "16",
+    "nombre": "Edwin",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 54
+  },
+  {
+    "unidad": "18",
+    "nombre": "David",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 55
+  },
+  {
+    "unidad": "19",
+    "nombre": "Francisco",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 56
+  },
+  {
+    "unidad": "20",
+    "nombre": "Heriberto",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 57
+  },
+  {
+    "unidad": "21",
+    "nombre": "Javier",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 58
+  },
+  {
+    "unidad": "22",
+    "nombre": "Jorge",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 59
+  },
+  {
+    "unidad": "24",
+    "nombre": "Hector",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 60
+  },
+  {
+    "unidad": "25",
+    "nombre": "Eloy",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 61
+  },
+  {
+    "unidad": "27",
+    "nombre": "Daniel",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 62
+  },
+  {
+    "unidad": "28",
+    "nombre": "Lobo",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 63
+  },
+  {
+    "unidad": "29",
+    "nombre": "Manuel",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 64
+  },
+  {
+    "unidad": "30",
+    "nombre": "Sergio",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 65
+  },
+  {
+    "unidad": "33",
+    "nombre": "Juan",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 66
+  },
+  {
+    "unidad": "34",
+    "nombre": "Alvaro",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 67
+  },
+  {
+    "unidad": "35",
+    "nombre": "Julio",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 68
+  },
+  {
+    "unidad": "36",
+    "nombre": "Filemon",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 69
+  },
+  {
+    "unidad": "37",
+    "nombre": "Luis",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 70
+  },
+  {
+    "unidad": "38",
+    "nombre": "Rodolfo",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 71
+  },
+  {
+    "unidad": "39",
+    "nombre": " ",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 72
+  },
+  {
+    "unidad": "41",
+    "nombre": "Juan",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 73
+  },
+  {
+    "unidad": "42",
+    "nombre": "Rafael",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 74
+  },
+  {
+    "unidad": "43",
+    "nombre": "Agustín",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 75
+  },
+  {
+    "unidad": "46",
+    "nombre": "Marco",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 76
+  },
+  {
+    "unidad": "47",
+    "nombre": "Octavio",
+    "cooperacion": 0,
+    "estado": 1,
+    "id": 77
+  }
+]

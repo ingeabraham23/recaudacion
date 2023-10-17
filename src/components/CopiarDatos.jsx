@@ -5,7 +5,7 @@ import Arreglo from "../arreglo";
 
 function CopiarDatos() {
   const rojos = Arreglo();
-  const encabezado = "Recaudación para apoyar al compañero Operador de la unidad ";
+  const encabezado = "Recaudación para apoyar al compañero . Operador de la unidad .";
   const [copyCompleted, setCopyCompleted] = useState(false);
   const [deleteCompleted, setDeleteCompleted] = useState(false);
   const [texto, setTexto] = useState("");
