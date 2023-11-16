@@ -17,7 +17,7 @@ thead th {
 tbody td,
 tbody th {
   border: 1px solid #000000;
-  font-size: 12px;
+  font-size: 15px;
   padding: 0px;
   text-align: center;
 }
@@ -34,6 +34,8 @@ button {
   border-radius: 5px; /* Agrega bordes redondeados */
   cursor: pointer; /* Cambia el cursor al pasar por encima */
   transition: background-color 0.3s ease; /* Agrega una transición */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -94,8 +96,9 @@ button:hover {
   text-align: center; /* Centra el texto horizontalmente */
   background-color: #B5B5B5;
   clear: both;
-  font-size: medium;
+  font-size: 20px;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .container-pie2 {
@@ -104,6 +107,9 @@ button:hover {
   padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
   text-align: center; /* Centra el texto horizontalmente */
   clear:both;
+  font-size: small;
+  background-color: #B5B5B5;
+  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
 }
 .container-calendar {
   width: 50%; /* Ajusta el ancho del div */

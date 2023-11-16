@@ -5,7 +5,10 @@ import "./TablaEdicion.css";
 
 function TablaEdicion() {
   const [personas, setPersonas] = useState([]);
-  const [encabezado, setEncabezado] = useState("");
+  const [encabezado, setEncabezado] = useState(
+    "Recaudación para apoyar al compañero: , Operador de la unidad: , (motivo)."
+  );
+  const [recaudador, setRecaudador] = useState("Recaudador: .");
 
   useEffect(() => {
     async function fetchPersonas() {
@@ -16,8 +19,15 @@ function TablaEdicion() {
         if (header) {
           setEncabezado(header.texto);
         }
+        const recauda = await db.recaudador.get(1);
+        if (recauda) {
+          setRecaudador(recauda.texto);
+        }
       } catch (error) {
-        console.error("Error al obtener los datos de la tabla de Dexie:", error);
+        console.error(
+          "Error al obtener los datos de la tabla de Dexie:",
+          error
+        );
       }
     }
 
@@ -41,7 +51,26 @@ function TablaEdicion() {
       await db.encabezado.put({ id: 1, texto });
       console.log("Encabezado guardado en la tabla de Dexie");
     } catch (error) {
-      console.error("Error al guardar el encabezado en la tabla de Dexie:", error);
+      console.error(
+        "Error al guardar el encabezado en la tabla de Dexie:",
+        error
+      );
+    }
+  };
+
+  const handleRecaudadorChange = async (event) => {
+    const texto = event.target.value;
+    setRecaudador(texto);
+
+    try {
+      await db.recaudador.clear();
+      await db.recaudador.put({ id: 1, texto });
+      console.log("Recaudador guardado en la tabla de Dexie");
+    } catch (error) {
+      console.error(
+        "Error al guardar el recaudador en la tabla de Dexie:",
+        error
+      );
     }
   };
 
@@ -63,14 +92,26 @@ function TablaEdicion() {
 
   return (
     <div>
+      <br></br>
+      <br></br>
       <div className="container-encabezado">
         <label htmlFor="encabezadoInput"></label>
-        <input
+        <textarea
           className="input-encabezado"
           id="encabezadoInput"
-          type="text"
           value={encabezado}
           onChange={handleEncabezadoChange}
+          rows={4} // Puedes ajustar el número de filas según tus necesidades
+        />
+        
+      </div>
+      <div className="container-encabezado">
+      <input
+          className="input-recaudador"
+          id="recaudadorInput"
+          type="text"
+          value={recaudador}
+          onChange={handleRecaudadorChange}
         />
       </div>
       <div style={{ width: "50%", margin: "0 auto" }}>

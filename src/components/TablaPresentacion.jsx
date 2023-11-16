@@ -21,7 +21,10 @@ function TablaPresentacion() {
     day: "numeric",
   };
   const [personas, setPersonas] = useState([]);
-  const [encabezado, setEncabezado] = useState("");
+  const [encabezado, setEncabezado] = useState(
+    "Recaudación para apoyar al compañero: , Operador de la unidad: , (motivo)."
+  );
+  const [recaudador, setRecaudador] = useState("Recaudador: .");
   const containerRef = useRef(null);
 
   const fechaActual = new Date(); // Obtiene la fecha actual
@@ -54,8 +57,23 @@ function TablaPresentacion() {
       }
     }
 
+    async function fetchRecaudador() {
+      try {
+        const data = await db.recaudador.toArray();
+        if (data.length > 0) {
+          setRecaudador(data[0].texto);
+        }
+      } catch (error) {
+        console.error(
+          "Error al obtener el recaudador de la tabla de Dexie:",
+          error
+        );
+      }
+    }
+
     fetchPersonas();
     fetchEncabezado();
+    fetchRecaudador();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -73,8 +91,43 @@ function TablaPresentacion() {
         return "#ED7FFA"; //Aportador externo
       case 5:
         return "#FF8503"; //Posturero
+      case 6:
+        return "white"; //No se le pidio
+      case 7:
+        return "#000000"; //No quiso dar
+      case 8:
+        return "DarkGreen"; //Dijo que a la vuelta y ya no se reporto
+      case 9:
+        return "#3700ff"; //Dijo que al otro día y ya no se reporto
       default:
         return "white";
+    }
+  };
+
+  const obtenerColorTexto = (estado) => {
+    switch (estado) {
+      case 0:
+        return "#000000"; //Fuera de servicio
+      case 1:
+        return "#000000"; //Activo
+      case 2:
+        return "#000000"; //Taller
+      case 3:
+        return "#000000"; //Checador
+      case 4:
+        return "#000000"; //Aportador externo
+      case 5:
+        return "#000000"; //Posturero
+      case 6:
+        return "#000000"; //No se le pidio
+      case 7:
+        return "red"; //No quiso dar
+      case 8:
+        return "#FFFFFF"; //Dijo que a la vuelta y ya no se reporto
+      case 9:
+        return "#FFFFFF"; //Dijo que al otro día y ya no se reporto
+      default:
+        return "#000000";
     }
   };
 
@@ -96,36 +149,63 @@ function TablaPresentacion() {
     setFechaSeleccionada(fecha);
   }
 
+  const personasConCooperacion = personas.filter(
+    (persona) => parseFloat(persona.cooperacion) > 0
+  );
+  const personasSinCooperacion = personas.filter(
+    (persona) => parseFloat(persona.cooperacion) === 0
+  );
+
+  const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  
   return (
     <div>
       <div ref={containerRef}>
-        <div style={{ width: "50%", margin: "0 auto" }}>
+        <div style={{ width: "98%", margin: "0 auto" }}>
           <table style={{ width: "100%" }}>
             <tbody>
-              <tr style={{ backgroundColor: "#F41010" }}>
-                <td>0: Fuera de servicio.</td>
+              <tr style={{ backgroundColor: "#F41010"}}>
+                <td style={{ fontSize:"12px" }}>0: Fuera de servicio.</td>
               </tr>
               <tr style={{ backgroundColor: "#AAFF00" }}>
-                <td>1: Activo.</td>
+                <td style={{ fontSize:"12px" }}>1: Activo.</td>
               </tr>
               <tr style={{ backgroundColor: "#EFEF0F" }}>
-                <td>2: Taller.</td>
+                <td style={{ fontSize:"12px" }}>2: Taller.</td>
               </tr>
               <tr style={{ backgroundColor: "#0FB5EF" }}>
-                <td>3: Checador.</td>
+                <td style={{ fontSize:"12px" }}>3: Checador.</td>
               </tr>
               <tr style={{ backgroundColor: "#ED7FFA" }}>
-                <td>4: Aportador externo.</td>
+                <td style={{ fontSize:"12px" }}>4: Aportador externo.</td>
               </tr>
               <tr style={{ backgroundColor: "#FF8503" }}>
-                <td>5: Posturero.</td>
+                <td style={{ fontSize:"12px" }}>5: Posturero.</td>
+              </tr>
+              <tr style={{ backgroundColor: "white" }}>
+                <td style={{ fontSize:"12px" }}>6: No se le pidio.</td>
+              </tr>
+              <tr style={{ backgroundColor: "#000000", color: "red" }}>
+                <td style={{ fontSize:"12px" }}>7: No quiso dar.</td>
+              </tr>
+              <tr style={{ backgroundColor: "DarkGreen", color: "white" }}>
+                <td style={{ fontSize:"12px" }}>8: Dijo que a la vuelta y ya no se reporto.</td>
+              </tr>
+              <tr style={{ backgroundColor: "#3700ff", color: "white" }}>
+                <td style={{ fontSize:"12px" }}>9: Dijo que a al otro día y ya no se reporto.</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="container">
           {encabezado}
-          <hr></hr>
+        </div>
+        <div className="container">
+          {recaudador}
+        </div>
+        <div className="container">
           Fecha: {fechaSeleccionada.toLocaleDateString("es-MX", opciones)}
         </div>
 
@@ -146,11 +226,12 @@ function TablaPresentacion() {
                     key={index}
                     style={{
                       backgroundColor: obtenerColorFila(persona.estado),
+                      color: obtenerColorTexto(persona.estado),
                     }}
                   >
                     <td>{persona.unidad}</td>
                     <td>{persona.nombre}</td>
-                    <td>${persona.cooperacion}.00</td>
+                    <td>$ {persona.cooperacion}.00</td>
                   </tr>
                 ))}
             </tbody>
@@ -173,43 +254,52 @@ function TablaPresentacion() {
                     key={persona.unidad}
                     style={{
                       backgroundColor: obtenerColorFila(persona.estado),
+                      color: obtenerColorTexto(persona.estado),
                     }}
                   >
                     <td>{persona.unidad}</td>
                     <td>{persona.nombre}</td>
-                    <td>${persona.cooperacion}.00</td>
+                    <td>$ {persona.cooperacion}.00</td>
                   </tr>
                 ))}
             </tbody>
           </table>
         </div>
 
-        <div className="container-pie2"></div>
         <div className="container-pie">
           Total: ${" "}
-          {personas
+          {formatNumberWithCommas(personas
             .reduce(
               (total, persona) => total + parseFloat(persona.cooperacion),
               0
             )
-            .toFixed(2)}
+            .toFixed(2))}
         </div>
-        
+        <div className="container-pie2" style={{backgroundColor: "DeepSkyBlue" }}>Total de Personas: {personas.length}</div>
+        <div className="container-pie2" style={{backgroundColor: "Chartreuse" }}>
+          Total Personas que colaboraron: {personasConCooperacion.length}
+        </div>
+        <div className="container-pie2" style={{backgroundColor: "red" }}>
+          Total Personas que no colaboraron: {personasSinCooperacion.length}
+        </div>
       </div>
       <div className="container-calendar">
-          <button onClick={handleCaptureTable}>Capturar Tabla</button>
-          <DatePicker
-            selected={fechaSeleccionada}
-            showIcon
-            withPortal
-            onChange={controlarFechaSeleccionada}
-            locale="es"
-            onFocus={(e) => {
-              e.target.readOnly = true;
-              e.target.blur();
-            }}
-          />
-        </div>
+      <button onClick={handleCaptureTable}>Capturar Tabla</button>
+      </div>
+      <div className="container-calendar">
+        
+        <DatePicker
+          selected={fechaSeleccionada}
+          showIcon
+          withPortal
+          onChange={controlarFechaSeleccionada}
+          locale="es"
+          onFocus={(e) => {
+            e.target.readOnly = true;
+            e.target.blur();
+          }}
+        />
+      </div>
     </div>
   );
 }
