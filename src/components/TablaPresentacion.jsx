@@ -133,7 +133,7 @@ function TablaPresentacion() {
 
   const handleCaptureTable = () => {
     if (containerRef.current) {
-      const scale = 2;
+      const scale = 6;
       html2canvas(containerRef.current, { scale }).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
         const downloadLink = document.createElement("a");
@@ -144,6 +144,8 @@ function TablaPresentacion() {
       });
     }
   };
+
+  
 
   function controlarFechaSeleccionada(fecha) {
     setFechaSeleccionada(fecha);
@@ -162,132 +164,183 @@ function TablaPresentacion() {
   
   return (
     <div>
-      <div ref={containerRef}>
-        <div style={{ width: "98%", margin: "0 auto" }}>
-          <table style={{ width: "100%" }}>
+      <div ref={containerRef} style={{ width: "100%" }}>
+        {/* LEYENDA DE COLORES */}
+        <div
+          style={{
+            width: "98%",
+            margin: "0",
+            whiteSpace: "nowrap",   // evita salto de línea
+            textAlign: "center",
+          }}
+        >
+          <table
+            style={{
+              width: "35%",
+              display: "inline-block",
+              verticalAlign: "top",
+              marginRight: "2%",
+              border: 0,
+              tableLayout: "fixed",   // 👈 fuerza el ancho
+            }}
+          >
             <tbody>
-              <tr style={{ backgroundColor: "#F41010"}}>
-                <td style={{ fontSize:"12px" }}>0: Fuera de servicio.</td>
+              <tr style={{ backgroundColor: "#F41010" }}>
+                <td style={{ fontSize: "12px" }}>0: Fuera de servicio.</td>
               </tr>
               <tr style={{ backgroundColor: "#AAFF00" }}>
-                <td style={{ fontSize:"12px" }}>1: Activo.</td>
+                <td style={{ fontSize: "12px" }}>1: Activo.</td>
               </tr>
               <tr style={{ backgroundColor: "#EFEF0F" }}>
-                <td style={{ fontSize:"12px" }}>2: Taller.</td>
+                <td style={{ fontSize: "12px" }}>2: Taller.</td>
               </tr>
               <tr style={{ backgroundColor: "#0FB5EF" }}>
-                <td style={{ fontSize:"12px" }}>3: Checador.</td>
+                <td style={{ fontSize: "12px" }}>3: Checador.</td>
               </tr>
               <tr style={{ backgroundColor: "#ED7FFA" }}>
-                <td style={{ fontSize:"12px" }}>4: Aportador externo.</td>
+                <td style={{ fontSize: "12px" }}>4: Aportador externo.</td>
               </tr>
+            </tbody>
+          </table>
+
+          <table
+            style={{
+              width: "50%",
+              display: "inline-block",
+              verticalAlign: "top",
+              border: 0,
+              tableLayout: "fixed",   // 👈 fuerza el ancho
+            }}
+          >
+            <tbody>
+              
               <tr style={{ backgroundColor: "#FF8503" }}>
-                <td style={{ fontSize:"12px" }}>5: Posturero.</td>
+                <td style={{ fontSize: "12px" }}>5: Posturero.</td>
               </tr>
               <tr style={{ backgroundColor: "white" }}>
-                <td style={{ fontSize:"12px" }}>6: No se le pidio.</td>
+                <td style={{ fontSize: "12px" }}>6: No se le pidió.</td>
               </tr>
-              <tr style={{ backgroundColor: "#000000", color: "red" }}>
-                <td style={{ fontSize:"12px" }}>7: No quiso dar.</td>
+              <tr style={{ backgroundColor: "black", color: "red" }}>
+                <td style={{ fontSize: "12px" }}>7: No quiso dar.</td>
               </tr>
               <tr style={{ backgroundColor: "DarkGreen", color: "white" }}>
-                <td style={{ fontSize:"12px" }}>8: Dijo que a la vuelta y ya no se reporto.</td>
+                <td style={{ fontSize: "12px" }}>
+                  8: Dijo que a la vuelta y ya no se reportó.
+                </td>
               </tr>
               <tr style={{ backgroundColor: "#3700ff", color: "white" }}>
-                <td style={{ fontSize:"12px" }}>9: Dijo que a al otro día y ya no se reporto.</td>
+                <td style={{ fontSize: "12px" }}>
+                  9: Dijo que al otro día y ya no se reportó.
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="container">
-          {encabezado}
-        </div>
-        <div className="container">
-          {recaudador}
-        </div>
+
+
+        {/* ENCABEZADOS */}
+        <div className="container">{encabezado}</div>
+        <div className="container">{recaudador}</div>
+
         <div className="container">
           Fecha: {fechaSeleccionada.toLocaleDateString("es-MX", opciones)}
         </div>
 
-        <div className="tabla-container">
-          <table className="tabla-izquierda">
-            <thead>
-              <tr>
-                <th>Unidad</th>
-                <th>Operador</th>
-                <th>Aporte</th>
-              </tr>
-            </thead>
-            <tbody>
-              {personas
-                .slice(0, Math.ceil(personas.length / 2))
-                .map((persona, index) => (
-                  <tr
-                    key={index}
-                    style={{
-                      backgroundColor: obtenerColorFila(persona.estado),
-                      color: obtenerColorTexto(persona.estado),
-                    }}
-                  >
-                    <td>{persona.unidad}</td>
-                    <td>{persona.nombre}</td>
-                    <td>$ {persona.cooperacion}.00</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="tabla-container-derecha">
-          <table className="tabla-derecha">
-            <thead>
-              <tr>
-                <th>Unidad</th>
-                <th>Operador</th>
-                <th>Aporte</th>
-              </tr>
-            </thead>
-            <tbody>
-              {personas
-                .slice(Math.ceil(personas.length / 2))
-                .map((persona, index) => (
-                  <tr
-                    key={persona.unidad}
-                    style={{
-                      backgroundColor: obtenerColorFila(persona.estado),
-                      color: obtenerColorTexto(persona.estado),
-                    }}
-                  >
-                    <td>{persona.unidad}</td>
-                    <td>{persona.nombre}</td>
-                    <td>$ {persona.cooperacion}.00</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
+        {/* --- TABLAS EN FLEXBOX (ya sin float) --- */}
+        <div className="contenedor-tablas">
+          {/* TABLA IZQUIERDA */}
+          <div style={{ width: "49%" }}>
+            <table className="tabla-izquierda">
+              <thead>
+                <tr>
+                  <th>Unidad</th>
+                  <th>Operador</th>
+                  <th>Aporte</th>
+                </tr>
+              </thead>
+              <tbody>
+                {personas
+                  .slice(0, Math.ceil(personas.length / 2))
+                  .map((persona, index) => (
+                    <tr
+                      key={index}
+                      style={{
+                        backgroundColor: obtenerColorFila(persona.estado),
+                        color: obtenerColorTexto(persona.estado),
+                      }}
+                    >
+                      <td>{persona.unidad}</td>
+                      <td>{persona.nombre}</td>
+                      <td>$ {persona.cooperacion}.00</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* TABLA DERECHA */}
+          <div style={{ width: "49%" }}>
+            <table className="tabla-derecha">
+              <thead>
+                <tr>
+                  <th>Unidad</th>
+                  <th>Operador</th>
+                  <th>Aporte</th>
+                </tr>
+              </thead>
+              <tbody>
+                {personas
+                  .slice(Math.ceil(personas.length / 2))
+                  .map((persona) => (
+                    <tr
+                      key={persona.unidad}
+                      style={{
+                        backgroundColor: obtenerColorFila(persona.estado),
+                        color: obtenerColorTexto(persona.estado),
+                      }}
+                    >
+                      <td>{persona.unidad}</td>
+                      <td>{persona.nombre}</td>
+                      <td>$ {persona.cooperacion}.00</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
+        {/* PIE DE TOTALES */}
         <div className="container-pie">
-          Total: ${" "}
-          {formatNumberWithCommas(personas
-            .reduce(
-              (total, persona) => total + parseFloat(persona.cooperacion),
-              0
-            )
-            .toFixed(2))}
+          Total:{" "}
+          {formatNumberWithCommas(
+            personas
+              .reduce(
+                (total, persona) => total + parseFloat(persona.cooperacion),
+                0
+              )
+              .toFixed(2)
+          )}
         </div>
-        <div className="container-pie2" style={{backgroundColor: "DeepSkyBlue" }}>Total de Personas: {personas.length}</div>
-        <div className="container-pie2" style={{backgroundColor: "Chartreuse" }}>
+
+        <div className="container-pie2" style={{ backgroundColor: "DeepSkyBlue" }}>
+          Total de Personas: {personas.length}
+        </div>
+
+        <div className="container-pie2" style={{ backgroundColor: "Chartreuse" }}>
           Total Personas que colaboraron: {personasConCooperacion.length}
         </div>
-        <div className="container-pie2" style={{backgroundColor: "red" }}>
+
+        <div className="container-pie2" style={{ backgroundColor: "red" }}>
           Total Personas que no colaboraron: {personasSinCooperacion.length}
         </div>
       </div>
+
+      {/* BOTÓN Y CALENDARIO */}
       <div className="container-calendar">
-      <button onClick={handleCaptureTable}>Capturar Tabla</button>
+        <button onClick={handleCaptureTable}>Capturar Tabla</button>
       </div>
+
       <div className="container-calendar">
-        
         <DatePicker
           selected={fechaSeleccionada}
           showIcon
@@ -302,6 +355,7 @@ function TablaPresentacion() {
       </div>
     </div>
   );
+
 }
 
 export default TablaPresentacion;

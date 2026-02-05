@@ -57,13 +57,16 @@ button:hover {
   text-align: center;
 } */
 
-.tabla-container {
-  width: 49%;
-  float: left;
+.contenedor-tablas {
+  width: 100%;
+  text-align: center;
+  white-space: nowrap; /* evita salto de línea */
 }
-.tabla-container-derecha {
+
+.contenedor-tablas > div {
+  display: inline-block;
   width: 49%;
-  float: right;
+  vertical-align: top;
 }
 
 .tabla-izquierda {
