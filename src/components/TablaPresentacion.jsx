@@ -22,9 +22,10 @@ function TablaPresentacion() {
   };
   const [personas, setPersonas] = useState([]);
   const [encabezado, setEncabezado] = useState(
-    "Recaudación para apoyar al compañero: , Operador de la unidad: , (motivo)."
+    "Recaudación para apoyar al compañero: , Operador de la unidad: ."
   );
   const [recaudador, setRecaudador] = useState("Recaudador: .");
+  const [motivo, setMotivo] = useState("Ya que lamentablemente: .");
   const containerRef = useRef(null);
 
   const fechaActual = new Date(); // Obtiene la fecha actual
@@ -71,9 +72,25 @@ function TablaPresentacion() {
       }
     }
 
+    async function fetchMotivo() {
+      try {
+        const data = await db.motivo.toArray();
+        if (data.length > 0) {
+          setMotivo(data[0].texto);
+        }
+      } catch (error) {
+        console.error(
+          "Error al obtener el motivo de la tabla de Dexie:",
+          error
+        );
+      }
+    }
+
+
     fetchPersonas();
     fetchEncabezado();
     fetchRecaudador();
+    fetchMotivo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -169,17 +186,17 @@ function TablaPresentacion() {
         <div
           style={{
             width: "98%",
-            margin: "0",
-            whiteSpace: "nowrap",   // evita salto de línea
-            textAlign: "center",
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "space-between", // una a la izquierda y otra a la derecha
+            alignItems: "flex-start",
           }}
         >
           <table
             style={{
-              width: "35%",
+              width: "40%",
               display: "inline-block",
               verticalAlign: "top",
-              marginRight: "2%",
               border: 0,
               tableLayout: "fixed",   // 👈 fuerza el ancho
             }}
@@ -200,6 +217,9 @@ function TablaPresentacion() {
               <tr style={{ backgroundColor: "#ED7FFA" }}>
                 <td style={{ fontSize: "12px" }}>4: Aportador externo.</td>
               </tr>
+              <tr style={{ backgroundColor: "#FF8503" }}>
+                <td style={{ fontSize: "12px" }}>5: Posturero.</td>
+              </tr>
             </tbody>
           </table>
 
@@ -214,9 +234,7 @@ function TablaPresentacion() {
           >
             <tbody>
               
-              <tr style={{ backgroundColor: "#FF8503" }}>
-                <td style={{ fontSize: "12px" }}>5: Posturero.</td>
-              </tr>
+              
               <tr style={{ backgroundColor: "white" }}>
                 <td style={{ fontSize: "12px" }}>6: No se le pidió.</td>
               </tr>
@@ -239,8 +257,28 @@ function TablaPresentacion() {
 
 
         {/* ENCABEZADOS */}
-        <div className="container">{encabezado}</div>
-        <div className="container">{recaudador}</div>
+        <div style={{
+          color: "#ffffff",        // color de fuente
+          fontSize: "14px",        // tamaño de letra
+          backgroundColor: "#426126", // color de fondo
+          //fontWeight: "bold",         // grosor del texto
+          textAlign: "center",        // alineación centrada
+        }}>{encabezado}</div>
+        <div style={{
+          color: "#ffffff",        // color de fuente
+          fontSize: "14px",        // tamaño de letra
+          backgroundColor: "#552d68", // color de fondo
+          //fontWeight: "bold",         // grosor del texto
+          textAlign: "center",        // alineación centrada
+        }}>{motivo}</div>
+        <div style={{
+          color: "#ffffff",        // color de fuente
+          fontSize: "14px",        // tamaño de letra
+          backgroundColor: "#1f4450", // color de fondo
+          //fontWeight: "bold",         // grosor del texto
+          textAlign: "center",        // alineación centrada
+        }}>{recaudador}</div>
+        
 
         <div className="container">
           Fecha: {fechaSeleccionada.toLocaleDateString("es-MX", opciones)}
@@ -332,6 +370,9 @@ function TablaPresentacion() {
 
         <div className="container-pie2" style={{ backgroundColor: "red" }}>
           Total Personas que no colaboraron: {personasSinCooperacion.length}
+        </div>
+        <div className="container-pie2" style={{ backgroundColor: "gray" }}>
+          © JoyBoy
         </div>
       </div>
 

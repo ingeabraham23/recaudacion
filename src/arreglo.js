@@ -17,6 +17,7 @@ function Arreglo() {
     { unidad: "14", nombre: "Daniel", cooperacion: 0, estado: 6 },
     { unidad: "15", nombre: "Oscar", cooperacion: 0, estado: 6 },
     { unidad: "16", nombre: "Jose Luis", cooperacion: 0, estado: 6 },
+    { unidad: "17", nombre: "Noe", cooperacion: 0, estado: 6 },
     { unidad: "18", nombre: "Samuel", cooperacion: 0, estado: 6 },
     { unidad: "19", nombre: "Francisco", cooperacion: 0, estado: 6 },
     { unidad: "20", nombre: "Heriberto", cooperacion: 0, estado: 6 },
