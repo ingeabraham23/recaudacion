@@ -1,0 +1,350 @@
+/* =========================================
+   RECAUDACIÓN ALTRUISTA
+   DISEÑO MÓVIL - COMPACTO
+========================================= */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
+  color: #222;
+}
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+form {
+  width: 94%;
+  max-width: 480px;
+  margin: 15px auto;
+  padding: 14px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+form input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 11px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 13px;
+  outline: none;
+}
+
+form input:focus {
+  border-color: #a51c30;
+  background: #fff;
+}
+
+form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 3px;
+  border: none;
+  border-radius: 8px;
+  background: #a51c30;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* =========================================
+   SEPARADOR
+========================================= */
+
+hr {
+  width: 90%;
+  max-width: 480px;
+  margin: 12px auto;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* =========================================
+   TABLA PRINCIPAL
+========================================= */
+
+.tabla {
+  width: 98%;
+  max-width: 480px;
+  border: none !important;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+
+  /* Sombra exterior solamente */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================================
+   ELIMINAR CONTORNOS DE TODAS LAS CELDAS
+========================================= */
+
+.tabla tr,
+.tabla td,
+.tabla th {
+  border: none !important;
+  outline: none !important;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado-recaudacion {
+  padding: 10px 8px !important;
+  background: #a51c30;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.4px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+.apoya {
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.al-compañero {
+  padding: 1px 10px 6px !important;
+  color: #a51c30;
+  font-size: 19px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+/* =========================================
+   MOTIVO
+========================================= */
+
+.lamentablemente-recaudacion {
+  padding: 5px 10px 1px !important;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.motivo {
+  padding: 3px 15px 6px !important;
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   RECAUDADOR
+========================================= */
+
+.fecha {
+  padding: 2px 10px !important;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hora {
+  padding: 0 10px 7px !important;
+  color: #777;
+  font-size: 11px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================
+   TÉRMINOS
+========================================= */
+
+.tips-encabezado {
+  padding: 8px 8px 5px !important;
+  color: #a51c30;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center !important;
+  letter-spacing: 0.6px;
+}
+
+.tips-recaudacion {
+  padding: 3px 15px !important;
+  color: #555;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left !important;
+}
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.copyright-recaudacion {
+  padding: 7px 10px 9px !important;
+  background: #a51c30;
+  color: white;
+  font-size: 8px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================
+   BOTÓN CAPTURAR
+========================================= */
+
+.boton-capturar {
+  display: block;
+  width: 125px;
+  height: 38px;
+  margin: 15px auto 25px;
+  border: none;
+  border-radius: 22px;
+  background: #a51c30;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.boton-capturar:active {
+  transform: scale(0.96);
+}
+
+/* =========================================
+   DECORACIÓN SUPERIOR
+========================================= */
+
+.decoracion-superior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  height: 80px;
+  margin-bottom: 4px;
+}
+
+.decoracion-superior img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.logo-urbanos {
+  display: block;
+  width: 150px;
+  height: 60px;
+  margin: 0 auto 2px;
+  object-fit: contain;
+}
+
+.titulo-apoyo {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 800;
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 360px) {
+
+  .tabla {
+    width: 96%;
+  }
+
+  .encabezado-recaudacion {
+    font-size: 17px;
+  }
+
+  .al-compañero {
+    font-size: 17px;
+  }
+
+  .motivo {
+    font-size: 14px;
+  }
+
+  .tips-recaudacion {
+    font-size: 9px;
+  }
+}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-import { faCirclePlus,  faCloudUpload, faDatabase, faEdit, faTableList } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus,  faCloudUpload, faDatabase, faEdit, faTableList, faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const navigationItems = [
@@ -9,6 +9,7 @@ const navigationItems = [
   { path: "/agregar", label: "agregar", icon: faCirclePlus },
   { path: "/cargar", label: "cargar", icon: faDatabase },
   { path: "/respaldar", label: "respaldar", icon: faCloudUpload },
+  { path: "/recaudacion", label: "recaudacion", icon: faSackDollar },
 ];
 
 function Navbar() {

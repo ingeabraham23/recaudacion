@@ -7,6 +7,7 @@ import TablaEdicion from "./components/TablaEdicion";
 import AgregarPersona from "./components/AgregarPersona";
 import Navbar from "./components/NavBar";
 import RespaldoYRestauracion from "./components/RespaldoYRestauracion";
+import Recaudacion from "./components/Recaudacion";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/agregar" element={<AgregarPersona />} />
           <Route path="/cargar" element={<CopiarDatos />} />
           <Route path="/respaldar" element={<RespaldoYRestauracion />} />
+          <Route path="/recaudacion" element={<Recaudacion />} />
         </Routes>
       </div>
     </HashRouter>
