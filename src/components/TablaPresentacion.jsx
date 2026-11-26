@@ -22,7 +22,7 @@ function TablaPresentacion() {
   };
   const [personas, setPersonas] = useState([]);
   const [encabezado, setEncabezado] = useState(
-    "Recaudación para apoyar al compañero: , Operador de la unidad: ."
+    "Recaudación para apoyar al compañero: , Operador de la unidad: .",
   );
   const [recaudador, setRecaudador] = useState("Recaudador: .");
   const [motivo, setMotivo] = useState("Ya que lamentablemente: .");
@@ -39,7 +39,7 @@ function TablaPresentacion() {
       } catch (error) {
         console.error(
           "Error al obtener los datos de la tabla de Dexie:",
-          error
+          error,
         );
       }
     }
@@ -53,7 +53,7 @@ function TablaPresentacion() {
       } catch (error) {
         console.error(
           "Error al obtener el encabezado de la tabla de Dexie:",
-          error
+          error,
         );
       }
     }
@@ -67,7 +67,7 @@ function TablaPresentacion() {
       } catch (error) {
         console.error(
           "Error al obtener el recaudador de la tabla de Dexie:",
-          error
+          error,
         );
       }
     }
@@ -81,11 +81,10 @@ function TablaPresentacion() {
       } catch (error) {
         console.error(
           "Error al obtener el motivo de la tabla de Dexie:",
-          error
+          error,
         );
       }
     }
-
 
     fetchPersonas();
     fetchEncabezado();
@@ -162,123 +161,73 @@ function TablaPresentacion() {
     }
   };
 
-  
-
   function controlarFechaSeleccionada(fecha) {
     setFechaSeleccionada(fecha);
   }
 
   const personasConCooperacion = personas.filter(
-    (persona) => parseFloat(persona.cooperacion) > 0
+    (persona) => parseFloat(persona.cooperacion) > 0,
   );
   const personasSinCooperacion = personas.filter(
-    (persona) => parseFloat(persona.cooperacion) === 0
+    (persona) => parseFloat(persona.cooperacion) === 0,
   );
 
   const formatNumberWithCommas = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-  
+
   return (
     <div>
       <div ref={containerRef} style={{ width: "100%" }}>
         {/* LEYENDA DE COLORES */}
-        <div
-          style={{
-            width: "98%",
-            margin: "0 auto",
-            display: "flex",
-            justifyContent: "space-between", // una a la izquierda y otra a la derecha
-            alignItems: "flex-start",
-          }}
-        >
-          <table
-            style={{
-              width: "40%",
-              display: "inline-block",
-              verticalAlign: "top",
-              border: 0,
-              tableLayout: "fixed",   // 👈 fuerza el ancho
-            }}
-          >
+        <div className="contenedor-leyenda">
+          <table className="tabla-leyenda">
             <tbody>
               <tr style={{ backgroundColor: "#F41010" }}>
-                <td style={{ fontSize: "12px" }}>0: Fuera de servicio.</td>
+                <td>0: Fuera de servicio.</td>
               </tr>
               <tr style={{ backgroundColor: "#AAFF00" }}>
-                <td style={{ fontSize: "12px" }}>1: Activo.</td>
+                <td>1: Activo.</td>
               </tr>
               <tr style={{ backgroundColor: "#EFEF0F" }}>
-                <td style={{ fontSize: "12px" }}>2: Taller.</td>
+                <td>2: Taller.</td>
               </tr>
               <tr style={{ backgroundColor: "#0FB5EF" }}>
-                <td style={{ fontSize: "12px" }}>3: Checador.</td>
+                <td>3: Checador.</td>
               </tr>
               <tr style={{ backgroundColor: "#ED7FFA" }}>
-                <td style={{ fontSize: "12px" }}>4: Aportador externo.</td>
-              </tr>
-              <tr style={{ backgroundColor: "#FF8503" }}>
-                <td style={{ fontSize: "12px" }}>5: Posturero.</td>
+                <td>4: Aportador externo.</td>
               </tr>
             </tbody>
           </table>
 
-          <table
-            style={{
-              width: "50%",
-              display: "inline-block",
-              verticalAlign: "top",
-              border: 0,
-              tableLayout: "fixed",   // 👈 fuerza el ancho
-            }}
-          >
+          <table className="tabla-leyenda">
             <tbody>
-              
-              
+              <tr style={{ backgroundColor: "#FF8503" }}>
+                <td>5: Posturero.</td>
+              </tr>
               <tr style={{ backgroundColor: "white" }}>
-                <td style={{ fontSize: "12px" }}>6: No se le pidió.</td>
+                <td>6: No se le pidió.</td>
               </tr>
               <tr style={{ backgroundColor: "black", color: "red" }}>
-                <td style={{ fontSize: "12px" }}>7: No quiso dar.</td>
+                <td>7: No quiso dar.</td>
               </tr>
               <tr style={{ backgroundColor: "DarkGreen", color: "white" }}>
-                <td style={{ fontSize: "12px" }}>
-                  8: Dijo que a la vuelta y ya no se reportó.
-                </td>
+                <td>8: Dijo que a la vuelta y ya no se reportó.</td>
               </tr>
               <tr style={{ backgroundColor: "#3700ff", color: "white" }}>
-                <td style={{ fontSize: "12px" }}>
-                  9: Dijo que al otro día y ya no se reportó.
-                </td>
+                <td>9: Dijo que al otro día y ya no se reportó.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-
         {/* ENCABEZADOS */}
-        <div style={{
-          color: "#ffffff",        // color de fuente
-          fontSize: "14px",        // tamaño de letra
-          backgroundColor: "#426126", // color de fondo
-          //fontWeight: "bold",         // grosor del texto
-          textAlign: "center",        // alineación centrada
-        }}>{encabezado}</div>
-        <div style={{
-          color: "#ffffff",        // color de fuente
-          fontSize: "14px",        // tamaño de letra
-          backgroundColor: "#552d68", // color de fondo
-          //fontWeight: "bold",         // grosor del texto
-          textAlign: "center",        // alineación centrada
-        }}>{motivo}</div>
-        <div style={{
-          color: "#ffffff",        // color de fuente
-          fontSize: "14px",        // tamaño de letra
-          backgroundColor: "#1f4450", // color de fondo
-          //fontWeight: "bold",         // grosor del texto
-          textAlign: "center",        // alineación centrada
-        }}>{recaudador}</div>
-        
+        <div className="encabezado-recaudacion-presentacion">{encabezado}</div>
+
+        <div className="encabezado-motivo">{motivo}</div>
+
+        <div className="encabezado-recaudador">{recaudador}</div>
 
         <div className="container">
           Fecha: {fechaSeleccionada.toLocaleDateString("es-MX", opciones)}
@@ -354,17 +303,23 @@ function TablaPresentacion() {
             personas
               .reduce(
                 (total, persona) => total + parseFloat(persona.cooperacion),
-                0
+                0,
               )
-              .toFixed(2)
+              .toFixed(2),
           )}
         </div>
 
-        <div className="container-pie2" style={{ backgroundColor: "DeepSkyBlue" }}>
+        <div
+          className="container-pie2"
+          style={{ backgroundColor: "DeepSkyBlue" }}
+        >
           Total de Personas: {personas.length}
         </div>
 
-        <div className="container-pie2" style={{ backgroundColor: "Chartreuse" }}>
+        <div
+          className="container-pie2"
+          style={{ backgroundColor: "Chartreuse" }}
+        >
           Total Personas que colaboraron: {personasConCooperacion.length}
         </div>
 
@@ -372,7 +327,7 @@ function TablaPresentacion() {
           Total Personas que no colaboraron: {personasSinCooperacion.length}
         </div>
         <div className="container-pie2" style={{ backgroundColor: "gray" }}>
-          © JoyBoy
+          @el.joyboy.de.chignautla
         </div>
       </div>
 
@@ -396,7 +351,6 @@ function TablaPresentacion() {
       </div>
     </div>
   );
-
 }
 
 export default TablaPresentacion;

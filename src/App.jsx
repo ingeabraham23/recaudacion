@@ -8,6 +8,7 @@ import AgregarPersona from "./components/AgregarPersona";
 import Navbar from "./components/NavBar";
 import RespaldoYRestauracion from "./components/RespaldoYRestauracion";
 import Recaudacion from "./components/Recaudacion";
+import ListaRoja from "./components/ListaRoja";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/cargar" element={<CopiarDatos />} />
           <Route path="/respaldar" element={<RespaldoYRestauracion />} />
           <Route path="/recaudacion" element={<Recaudacion />} />
+          <Route path="/lista" element={<ListaRoja />} />
         </Routes>
       </div>
     </HashRouter>

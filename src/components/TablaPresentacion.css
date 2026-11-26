@@ -1,123 +1,547 @@
-table {
+/* =========================================================
+   TABLA DE PRESENTACIÓN DE RECAUDACIÓN
+   Diseño optimizado para celular y captura con html2canvas
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   CONTENEDOR GENERAL
+   --------------------------------------------------------- */
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fenix";
+  src: url("/fonts/Fenix.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f1f3f5;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/*
+   Este es el contenedor que contiene TODO lo que será
+   capturado por html2canvas.
+
+   Se deja espacio arriba y abajo para que la imagen no
+   quede pegada a los bordes del teléfono.
+*/
+[ref="containerRef"] {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   REFERENCIAS DE COLORES
+   --------------------------------------------------------- */
+
+.contenedor-leyenda {
+  width: 98%;
+  margin: 1%;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  gap: 8px;
+
+  box-sizing: border-box;
+}
+
+.tabla-leyenda {
+  width: 50%;
+  flex: 1;
+
   border-collapse: collapse;
+  border-spacing: 0;
+
+  table-layout: fixed;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.tabla-leyenda tbody {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
 
-thead th {
-  border: 1px solid #000000;
-  font-size: 10px;
+.tabla-leyenda tr {
+  flex: 1;
+
+  display: flex;
+  width: 100%;
+}
+
+.tabla-leyenda td {
+  flex: 1;
+
+  border: none !important;
+
+  letter-spacing: 0.4px;
+  font-family: "Fenix";
+  font-size: 9px;
+  line-height: 1.1;
+  font-weight: 600;
+
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   ENCABEZADOS
+   --------------------------------------------------------- */
+
+/*
+   Los tres encabezados funcionan como una especie de
+   título + descripción del comunicado.
+*/
+
+.encabezado-recaudacion-presentacion,
+.encabezado-motivo,
+.encabezado-recaudador {
+  width: 98%;
+  margin: 2px auto;
+  padding: 6px 10px;
+
+  border-radius: 3px;
+
   text-align: center;
-  padding: 0px;
-  background-color: rgb(255, 255, 255);
-  font-weight: normal;
-}
 
-tbody td,
-tbody th {
-  border: 1px solid #000000;
-  font-size: 15px;
-  padding: 0px;
-  text-align: center;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-button {
-  background-color: #6bca12; /* Cambia el color de fondo */
-  color: white; /* Cambia el color del texto */
-  padding: 10px 20px; /* Aumenta el espacio alrededor del texto */
-  border: 1px solid #000; /* Elimina el borde */
-  border-radius: 5px; /* Agrega bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  transition: background-color 0.3s ease; /* Agrega una transición */
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-button:hover {
-  background-color: #3e8e41; /* Cambia el color de fondo al pasar el ratón por encima */
-}
-
-.celda-contador {
-  background-color: rgb(255, 255, 255);
-}
-
-.fila-total {
-  background-color: rgb(255, 255, 255);
-}
-
-/* .encabezado {
-  border: 1px solid #000000;
+  letter-spacing: 0.4px;
+  font-family: "Montserrat";
   font-size: 12px;
-  padding: 1px;
-  text-align: center;
-} */
+  font-weight: 600;
 
-.contenedor-tablas {
-  width: 100%;
-  text-align: center;
-  white-space: nowrap; /* evita salto de línea */
+  line-height: 1.1;
 }
 
-.contenedor-tablas > div {
-  display: inline-block;
-  width: 49%;
-  vertical-align: top;
+/* Recaudación */
+.encabezado-recaudacion-presentacion {
+  background-color: #426126;
+  color: white;
 }
 
-.tabla-izquierda {
-  width: 98%;
-  border-collapse: collapse;
-  margin-left: 2px;
+/* Motivo */
+.encabezado-motivo {
+  background-color: #552d68;
+  color: white;
 }
 
-.tabla-derecha {
-  width: 98%;
-  border-collapse: collapse;
-  margin-right: 2px;
+/* Recaudador */
+.encabezado-recaudador {
+  background-color: #1f4450;
+  color: white;
 }
+
+/* ---------------------------------------------------------
+   FECHA
+   --------------------------------------------------------- */
 
 .container {
-  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
-  width: 98%; /* Ajusta el ancho del div */
-  margin: 1px; /* Centra horizontalmente el div */
-  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
-  text-align: center; /* Centra el texto horizontalmente */
-  background-color: #B5B5B5;
-  font-size: small;
+  width: 98%;
+  margin: 4px auto 7px;
+
+  text-align: center;
+
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+
+  line-height: 1.2;
 }
+
+/* ---------------------------------------------------------
+   TABLAS PRINCIPALES
+   --------------------------------------------------------- */
+
+/*
+   Contenedor de las dos tablas.
+
+   Se utiliza flexbox para mantener ambas tablas
+   perfectamente alineadas.
+*/
+
+.contenedor-tablas {
+  width: 98%;
+  margin: 0 auto;
+
+  display: flex;
+  gap: 5px;
+
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Cada mitad */
+
+.contenedor-tablas > div {
+  width: 50% !important;
+  min-width: 0;
+}
+
+/* Tablas */
+
+.tabla-izquierda,
+.tabla-derecha {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  font-size: 10px;
+}
+
+/*
+   Encabezados de las tablas.
+
+   Son compactos para ahorrar espacio vertical.
+*/
+
+.tabla-izquierda thead th,
+.tabla-derecha thead th {
+  padding: 5px 2px;
+
+  background: #343a40;
+  color: white;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  border: none;
+}
+
+/*
+   Ancho de columnas.
+
+   Unidad pequeña.
+   Operador ocupa la mayor parte.
+   Aporte queda compacto.
+*/
+
+.tabla-izquierda th:nth-child(1),
+.tabla-izquierda td:nth-child(1),
+.tabla-derecha th:nth-child(1),
+.tabla-derecha td:nth-child(1) {
+  width: 18%;
+}
+
+.tabla-izquierda th:nth-child(2),
+.tabla-izquierda td:nth-child(2),
+.tabla-derecha th:nth-child(2),
+.tabla-derecha td:nth-child(2) {
+  width: 54%;
+}
+
+.tabla-izquierda th:nth-child(3),
+.tabla-izquierda td:nth-child(3),
+.tabla-derecha th:nth-child(3),
+.tabla-derecha td:nth-child(3) {
+  width: 28%;
+}
+
+/*
+   Filas.
+
+   El tamaño pequeño es intencional:
+   queremos que una lista larga pueda entrar
+   en una sola imagen para WhatsApp.
+*/
+
+.tabla-izquierda tbody td,
+.tabla-derecha tbody td {
+  padding: 3px 2px;
+
+  border: none !important;
+
+  font-size: 9px;
+  line-height: 1.1;
+
+  vertical-align: middle;
+}
+
+/*
+   Unidad centrada
+*/
+
+.tabla-izquierda td:first-child,
+.tabla-derecha td:first-child {
+  text-align: center;
+  font-weight: 700;
+}
+
+/*
+   Nombre del operador
+*/
+
+.tabla-izquierda td:nth-child(2),
+.tabla-derecha td:nth-child(2) {
+  text-align: left;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+   Aporte
+*/
+
+.tabla-izquierda td:nth-child(3),
+.tabla-derecha td:nth-child(3) {
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   PIE DE TOTALES
+   --------------------------------------------------------- */
 
 .container-pie {
-  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
-  width: 98%; /* Ajusta el ancho del div */
-  margin: 1px; /* Centra horizontalmente el div */
-  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
-  text-align: center; /* Centra el texto horizontalmente */
-  background-color: #B5B5B5;
-  clear: both;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
+  width: 98%;
+  margin: 7px auto 3px;
+  padding: 2px;
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #222;
+  color: white;
+
+  border-radius: 5px;
+
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-family: "Montserrat";
+
+  line-height: 1.2;
+
+  width: 98%;
+  margin: 2px auto;
+
+  border-radius: 3px;
+
+  text-align: center;
+
+  
 }
+
+/*
+   Totales secundarios
+*/
 
 .container-pie2 {
-  width: 98%; /* Ajusta el ancho del div */
-  margin: 1px; /* Centra horizontalmente el div */
-  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
-  text-align: center; /* Centra el texto horizontalmente */
-  clear:both;
-  font-size: small;
-  background-color: #B5B5B5;
-  border: 1px solid black; /* Agrega el borde de 1px de ancho y color negro */
-}
-.container-calendar {
-  width: 50%; /* Ajusta el ancho del div */
-  margin: 0 auto; /* Centra horizontalmente el div */
-  padding: 1px; /* Agrega un espacio interno alrededor del contenido del div */
-  text-align: center; /* Centra el texto horizontalmente */
+  width: 98%;
+  margin: 2px auto;
+  padding: 2px;
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border-radius: 4px;
+
+  font-size: 10px;
+  font-weight: 700;
+  font-family: "Montserrat";
+  word-spacing: 2px;
+
+  line-height: 1.15;
 }
 
+/* Copyright */
+
+.container-pie2:last-child {
+  margin-top: 5px;
+  margin-bottom: 5%;
+  background: #555 !important;
+  color: white;
+  font-size: 10px;
+  font-family: "Fenix";
+  word-spacing: 2px;
+}
+
+/* ---------------------------------------------------------
+   CONTROLES FUERA DE LA CAPTURA
+   --------------------------------------------------------- */
+
+.container-calendar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0;
+}
+
+/* Botón */
+
+.container-calendar button {
+  border: none;
+  border-radius: 20px;
+
+  padding: 9px 18px;
+
+  background: #426126;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto al presionar */
+
+.container-calendar button:active {
+  transform: scale(0.97);
+}
+
+/* ---------------------------------------------------------
+   DATEPICKER
+   --------------------------------------------------------- */
+
+.container-calendar .react-datepicker-wrapper {
+  width: auto;
+}
+
+.container-calendar input {
+  width: 190px;
+
+  padding: 8px 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 18px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  background: white;
+}
+
+/* ---------------------------------------------------------
+   AJUSTES PARA CELULARES MUY PEQUEÑOS
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+  .contenedor-leyenda {
+    width: 94%;
+    gap: 4px;
+  }
+
+  .contenedor-leyenda td {
+    font-size: 8px;
+    padding: 3px 4px;
+  }
+
+  .encabezado-recaudacion,
+  .encabezado-motivo,
+  .encabezado-recaudador {
+    width: 95%;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .tabla-izquierda,
+  .tabla-derecha {
+    font-size: 8px;
+  }
+
+  .tabla-izquierda thead th,
+  .tabla-derecha thead th {
+    font-size: 8px;
+    padding: 4px 1px;
+  }
+
+  .tabla-izquierda tbody td,
+  .tabla-derecha tbody td {
+    font-size: 8px;
+    padding: 2px 1px;
+  }
+
+  .container-pie {
+    font-size: 11px;
+  }
+
+  .container-pie2 {
+    font-size: 9px;
+  }
+}
+
+/* ---------------------------------------------------------
+   PANTALLAS GRANDES
+   --------------------------------------------------------- */
+
+@media (min-width: 600px) {
+  /*
+     Aunque la aplicación sea móvil, si alguien abre
+     la página en una pantalla grande evitamos que la
+     tabla se vuelva exageradamente ancha.
+  */
+
+  #root > div > div:first-child {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

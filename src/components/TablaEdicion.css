@@ -1,86 +1,133 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 table {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 2px solid #000000;
-  }
-  
-  th {
-    border: 1px solid #000000;
-    font-size: 18px;
-    text-align: center;
-    padding: 1px;
-    background-color: grey;
-  }
-  
-  td, th {
-    border: 1px solid #000000;
-    font-size: 18px;
-    padding: 1px;
-    text-align: center;
-  }
-  
-   tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  input {
-    width: 100%;
-    padding: 4px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid #000000;
+}
 
-  .input-encabezado {
-    width: 90%;
-    padding: 5px;
-    font-size: 15px;
-    border: 1px solid #a3a3a3;
-    border-radius: 4px;
-  }
+th {
+  border: 1px solid #000000;
+  font-size: 18px;
+  text-align: center;
+  padding: 1px;
+  background-color: grey;
+}
 
-  .input-recaudador{
-    width: 90%;
-    padding: 5px;
-    font-size: 15px;
-    border: 1px solid #a3a3a3;
-    border-radius: 4px;
-    margin-top: 10px;
-  }
+td,
+th {
+  border: 1px solid #000000;
+  font-size: 18px;
+  padding: 1px;
+  text-align: center;
+}
 
-  .input-cooperacion {
-    width: 90%;
-    padding: 1px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-  .input-nombre {
-    width: 90%;
-    padding: 1px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  .container-encabezado {
-    display: flex;
-    justify-content:center;
-  }
-  
-  
-  button {
-    background-color: #6bca12;
-    color: white;
-    padding: 10px 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
+input {
+  width: 100%;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-encabezado {
+  width: 90%;
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+}
+
+.input-recaudador {
+  width: 90%;
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.input-cooperacion {
+  width: 90%;
+  padding: 1px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-nombre {
+  width: 90%;
+  padding: 1px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+.container-encabezado {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: #6bca12;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}

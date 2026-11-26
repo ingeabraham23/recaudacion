@@ -105,16 +105,16 @@ function Recaudacion() {
           <tr>
             <th className="encabezado-recaudacion">
               <div className="decoracion-superior">
-                <img src="/corazon.png" alt="" />
+                <img src={`${import.meta.env.BASE_URL}corazon.png`} alt="" />
 
-                <img src="/solidaridad.png" alt="" />
+                <img src={`${import.meta.env.BASE_URL}solidaridad.png`} alt="" />
 
-                <img src="/paloma.png" alt="" />
+                <img src={`${import.meta.env.BASE_URL}paloma.png`} alt="" />
               </div>
 
               <img
                 className="logo-urbanos"
-                src="/urbanos-rojos.png"
+                src={`${import.meta.env.BASE_URL}urbanos-rojos.png`}
                 alt="Urbanos Rojos"
               />
 
@@ -159,34 +159,37 @@ function Recaudacion() {
             <td className="hora">{inputs.hora}</td>
           </tr>
           <tr>
-  <td className="tips-encabezado">
-    ♥ ACUERDOS DE SOLIDARIDAD ♥
-  </td>
-</tr>
+            <td className="tips-encabezado">ACUERDOS DE SOLIDARIDAD</td>
+          </tr>
 
-<tr>
-  <td className="tips-recaudacion">
-    ♥ Estas recaudaciones son voluntarias y representan un acto de apoyo y solidaridad entre compañeros.
-  </td>
-</tr>
+          <tr>
+            <td className="tips-recaudacion">
+              ♥ Estas recaudaciones son voluntarias y representan un acto de
+              apoyo y solidaridad entre compañeros.
+            </td>
+          </tr>
 
-<tr>
-  <td className="tips-recaudacion">
-    ♥ El apoyo aplica cuando un familiar directo del compañero se encuentre hospitalizado o haya fallecido.
-  </td>
-</tr>
+          <tr>
+            <td className="tips-recaudacion">
+              ♥ El apoyo aplica cuando el compañero o un familiar directo del compañero se
+              encuentre hospitalizado o haya fallecido.
+            </td>
+          </tr>
 
-<tr>
-  <td className="tips-recaudacion">
-    ♥ No aplica en casos donde el compañero o su familiar cuente con respaldo del IMSS.
-  </td>
-</tr>
+          <tr>
+            <td className="tips-recaudacion">
+              ♥ No aplica en casos donde el compañero o su familiar cuente con
+              respaldo del IMSS.
+            </td>
+          </tr>
 
-<tr>
-  <td className="tips-recaudacion">
-    ♥ Se solicita que quien reciba el apoyo haya participado anteriormente en las recaudaciones del grupo, ya sea aportando o colaborando.
-  </td>
-</tr>
+          <tr>
+            <td className="tips-recaudacion">
+              ♥ Se solicita que quien reciba el apoyo haya participado
+              anteriormente en las recaudaciones del grupo, ya sea aportando o
+              colaborando.
+            </td>
+          </tr>
         </tbody>
         <tfoot>
           <tr>

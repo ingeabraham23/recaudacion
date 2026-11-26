@@ -10,6 +10,7 @@ const navigationItems = [
   { path: "/cargar", label: "cargar", icon: faDatabase },
   { path: "/respaldar", label: "respaldar", icon: faCloudUpload },
   { path: "/recaudacion", label: "recaudacion", icon: faSackDollar },
+  { path: "/lista", label: "lista", icon: faTableList },
 ];
 
 function Navbar() {
